@@ -12,7 +12,7 @@ mongoose.connect('mongodb://localhost/portofolio-auth');
 mongoose.Promise = global.Promise;
 
 var index = require('./routes/index');
-var users = require('./routes/users');
+var users = require('./routes/users.route');
 
 var app = express();
 
