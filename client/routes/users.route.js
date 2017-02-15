@@ -7,8 +7,8 @@ router.get('/', controller.getAllUser)
 // CREATE user
 router.post('/', controller.createUser)
 // UPDATE user
-router.put('/', controller.updateUser)
+router.put('/:id', controller.updateUser)
 // DELETE user
-router.delete('/', controller.deleteUser)
+router.delete('/:id', controller.deleteUser)
 
 module.exports = router;
