@@ -37,7 +37,7 @@ module.exports = {
       }
       else if( hash.verify(req.body.password,login.password) ){
         console.log(login);
-        let token = jwt.sign( {username: login.username, email: login.email}, process.env.SECRET);
+        let token = jwt.sign( {username: login.username, email: login.email}, process.env.SECRET, {expiresIn : 60*60});
         res.json( {
           username : login.username,
           email    : login.email,
@@ -58,16 +58,31 @@ module.exports = {
         password  : hash.generate(req.body.password),
         updatedAt : new Date()
       }, { new : true }, (err, data) => {
-    res.send(data)
+    res.json({
+      message : "User (below) has been updated",
+      data : data})
     })
   },
 
   // DELETE a user
   deleteUser : (req, res) => {
     user.findOneAndRemove( {_id: req.params.id} ).then( (data) =>{
-      res.send({
+      res.json({
         message : "User (below) has been removed",
         data : data})
     })
+  },
+
+  // VERIFY a user
+  verifyUser : (req, res, next) => {
+    let decode = jwt.verify(req.header('token'), process.env.SECRET)
+
+    if (decode)
+        next()
+    else {
+        res.json({
+          message : "you must login to access this page"
+        })
+    }
   }
 }
