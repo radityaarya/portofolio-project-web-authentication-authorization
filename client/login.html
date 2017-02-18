@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+    <meta charset="utf-8">
+    <title>Login</title>
+  </head>
+  <body>
+
+    <div id="login-page" class="row">
+        <div class="col s4 z-depth-4 card-panel">
+            <form class="login-form">
+                <div class="row center-align">
+                    <div>
+                        <p class="center login-form-text">REGISTER / LOGIN</p>
+                    </div>
+                </div>
+                <div class="row margin">
+                    <div class="input-field col s12">
+                      <i class="mdi-social-person-outline prefix"></i>
+                      <input id="input-username" type="text">
+                      <label for="input-username" class="center-align">Username</label></div>
+                </div>
+                <div class="row margin">
+                    <div class="input-field col s12">
+                      <i class="mdi-action-lock-outline prefix"></i>
+                      <input id="input-password" name="password" type="password">
+                      <label for="input-password" class="">Password</label></div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                      <a onclick="signup()" type="submit" class="btn blue-grey darken-4 waves-effect waves-light col s12">Register</a>
+                    </div>
+                    <div class="input-field col s6">
+                      <a onclick="login()" type="submit" class="btn blue-grey darken-4 waves-effect waves-light col s12">Login</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/jquery-login.js"></script>
+  </body>
+</html>
